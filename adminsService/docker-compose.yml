@@ -1,0 +1,25 @@
+version: "3.0"
+
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "7001:7001"
+    command: npm run dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: admins-service
+
+volumes:
+  postgres:
