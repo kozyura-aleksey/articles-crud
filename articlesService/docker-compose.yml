@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "7002:7002"
+      - "5002:5002"
     command: npm run dev
     volumes:
       - .:/app/
